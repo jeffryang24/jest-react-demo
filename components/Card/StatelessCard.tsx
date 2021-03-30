@@ -11,11 +11,16 @@ export default function StatelessCard(props: Props) {
     <Card>
       <Image src="/matthew.png" wrapped ui={false} />
       <Card.Content>
-        <Card.Header>{props.fullName || 'No Name'}</Card.Header>
+        <Card.Header data-testid={'fullName'}>
+          {props.fullName || 'No Name'}
+        </Card.Header>
         <Card.Meta>
-          <span>{`Age: ${props.age || 'No Age'}`}</span>
+          <span>{'Age: '}</span>
+          <span data-testid={'age'}>{props.age || 'No Age'}</span>
         </Card.Meta>
-        <Card.Description>{props.description || '-'}</Card.Description>
+        <Card.Description data-testid={'description'}>
+          {props.description || '-'}
+        </Card.Description>
       </Card.Content>
     </Card>
   );
