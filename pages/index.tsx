@@ -2,15 +2,10 @@ import { useCallback, useState, ChangeEvent } from 'react';
 import Head from 'next/head';
 import { css } from '@emotion/react';
 
-import {
-  Container,
-  Grid,
-  Header,
-  InputOnChangeData,
-  Segment,
-} from 'semantic-ui-react';
+import { Container, Grid, Header, InputOnChangeData } from 'semantic-ui-react';
 import StatelessCard from '../components/Card/StatelessCard';
 import ControlledForm from '../components/Form/ControlledForm';
+import UtilityClassComponent from '../components/Utility/UtilityClassComponent';
 
 const containerClass = css`
   padding: 16px;
@@ -38,9 +33,11 @@ export default function Home() {
 
       <Header as={'h1'}>{'Jest Demo Sample'}</Header>
 
-      <Segment>
-        <Grid columns={2} divided>
+      <Grid columns={2} celled>
+        <Grid.Row>
           <Grid.Column>
+            <Header size={'medium'}>{'Card and Form Sample'}</Header>
+
             <StatelessCard
               age={age}
               description={description}
@@ -60,8 +57,16 @@ export default function Home() {
               onFullNameChange={handleSetFullName}
             />
           </Grid.Column>
-        </Grid>
-      </Segment>
+        </Grid.Row>
+
+        <Grid.Row>
+          <Grid.Column>
+            <Header size={'medium'}>{'Utility Method'}</Header>
+
+            <UtilityClassComponent />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </Container>
   );
 }

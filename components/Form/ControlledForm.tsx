@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react';
 import { Form, FormInputProps, FormTextAreaProps } from 'semantic-ui-react';
+
+import { getPeople } from '../../services/PeopleService';
 
 interface Props {
   age: string;
@@ -18,6 +21,23 @@ export default function ControlledForm(props: Props) {
     onDescriptionChange,
     onFullNameChange,
   } = props;
+
+  const [people, setPeople] = useState([]);
+
+  useEffect(() => {
+    console.log('Hello from controlled form!');
+
+    async function fetchPeople() {
+      const result = await getPeople();
+      setPeople(result);
+    }
+
+    fetchPeople();
+
+    return () => {
+      console.log('Bye-bye from controlled form!');
+    };
+  }, []);
 
   return (
     <Form>
