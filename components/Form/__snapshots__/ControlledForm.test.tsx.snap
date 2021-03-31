@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Form - Controlled Form should render the form gracefully - snapshot 1`] = `
+<body>
+  <div>
+    <form
+      class="ui form"
+    >
+      <div
+        class="field"
+      >
+        <label
+          for="fullName"
+        >
+          Full Name
+        </label>
+        <div
+          class="ui input"
+        >
+          <input
+            id="fullName"
+            placeholder="Insert Full Name"
+            type="text"
+            value="John Doe"
+          />
+        </div>
+      </div>
+      <div
+        class="field"
+      >
+        <label
+          for="age"
+        >
+          Age
+        </label>
+        <div
+          class="ui input"
+        >
+          <input
+            id="age"
+            min="1"
+            placeholder="Insert Age"
+            type="number"
+            value="23"
+          />
+        </div>
+      </div>
+      <div
+        class="field"
+      >
+        <label
+          for="description"
+        >
+          Description
+        </label>
+        <textarea
+          id="description"
+          placeholder="Insert Description"
+          rows="3"
+          style="min-height: 150px;"
+        >
+          Lorem ipsum dolor sip amet
+        </textarea>
+      </div>
+      <p>
+        Timer ends in: 
+        <span>
+          5
+        </span>
+        <span
+          style="margin-left: 8px;"
+        />
+      </p>
+      <div
+        class="fields"
+      >
+        <div
+          class="field"
+        >
+          <button
+            class="ui green button"
+            type="button"
+          >
+            Start Timer
+          </button>
+        </div>
+        <div
+          class="field"
+        >
+          <button
+            class="ui yellow button"
+            type="button"
+          >
+            Pause Timer
+          </button>
+        </div>
+        <div
+          class="field"
+        >
+          <button
+            class="ui red button"
+            type="button"
+          >
+            Stop Timer
+          </button>
+        </div>
+      </div>
+      <code
+        data-testid="peopleLength"
+      >
+        0
+      </code>
+    </form>
+  </div>
+</body>
+`;

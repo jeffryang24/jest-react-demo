@@ -3,6 +3,8 @@ import { Form, FormInputProps, FormTextAreaProps } from 'semantic-ui-react';
 
 import { getPeople } from '../../services/PeopleService';
 
+import useTimer from '../../hooks/useTimer';
+
 interface Props {
   age: string;
   description: string;
@@ -23,6 +25,7 @@ export default function ControlledForm(props: Props) {
   } = props;
 
   const [people, setPeople] = useState([]);
+  const [timer, timerUtil] = useTimer({ startFrom: 5 });
 
   useEffect(() => {
     console.log('Hello from controlled form!');
@@ -67,6 +70,42 @@ export default function ControlledForm(props: Props) {
         value={description}
         onChange={onDescriptionChange}
       />
+
+      <p>
+        {'Timer ends in: '}
+        <span>{timer.currentDuration}</span>
+        <span style={{ marginLeft: 8 }}>
+          {timer.currentDuration === 0 ? 'Ringing' : null}
+        </span>
+      </p>
+
+      <Form.Group>
+        <Form.Button
+          type={'button'}
+          color={'green'}
+          onClick={timerUtil.startTimer}
+        >
+          {'Start Timer'}
+        </Form.Button>
+
+        <Form.Button
+          type={'button'}
+          color={'yellow'}
+          onClick={timerUtil.pauseTimer}
+        >
+          {'Pause Timer'}
+        </Form.Button>
+
+        <Form.Button
+          type={'button'}
+          color={'red'}
+          onClick={timerUtil.stopTimer}
+        >
+          {'Stop Timer'}
+        </Form.Button>
+      </Form.Group>
+
+      <code data-testId={'peopleLength'}>{people.length}</code>
     </Form>
   );
 }
